@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.Adapters
 
 import android.content.Context
 import android.content.Intent
@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.Hobby
+import com.example.myapplication.R
+import com.example.myapplication.showToast
 
 
 class HobbiesAdapter(private val context: Context, private val hobbies: List<Hobby>): RecyclerView.Adapter<HobbiesAdapter.MyViewHolder>() {
@@ -34,16 +36,21 @@ class HobbiesAdapter(private val context: Context, private val hobbies: List<Hob
 
         init {
             itemView.setOnClickListener {
-                Toast.makeText(context, currentHobby!!.title+"Clicked", Toast.LENGTH_SHORT).show()
+                currentHobby?.let {
+                    context.showToast(currentHobby!!.title+"Clicked")
+                }
+
             }
             itemView.setOnClickListener {
-                val message: String = "My hobby is: "+ currentHobby!!.title
-                val intent = Intent()
-                intent.action = Intent.ACTION_SEND
-                intent.putExtra(Intent.EXTRA_TEXT, message)
-                intent.type = "plain/text"
+                currentHobby?.let {
+                    val message: String = "My hobby is: "+ currentHobby!!.title
+                    val intent = Intent()
+                    intent.action = Intent.ACTION_SEND
+                    intent.putExtra(Intent.EXTRA_TEXT, message)
+                    intent.type = "plain/text"
 
-                context.startActivity(Intent.createChooser(intent, "share to: "))
+                    context.startActivity(Intent.createChooser(intent, "share to: "))
+                }
             }
         }
         val txvTitle: TextView = itemView.findViewById(R.id.txvTitle)

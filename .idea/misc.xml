@@ -6,8 +6,9 @@
         <entry key="app/src/main/res/layout/activity_hobbies.xml" value="0.21" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.17239583333333333" />
         <entry key="app/src/main/res/layout/activity_second.xml" value="0.17239583333333333" />
-        <entry key="app/src/main/res/layout/content_main.xml" value="0.17239583333333333" />
-        <entry key="app/src/main/res/layout/list_item.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/content_main.xml" value="1.0" />
+        <entry key="app/src/main/res/layout/list_item.xml" value="0.1" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.18854166666666666" />
       </map>
     </option>
   </component>

@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.Activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,9 +6,10 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.EditText
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityMainBinding
+import com.example.myapplication.showToast
 import com.google.android.material.snackbar.Snackbar
 
 const val user_name = "com.example.myapplication"
@@ -32,8 +33,7 @@ class MainActivity : AppCompatActivity() {
         }
         binding.include.btn.setOnClickListener {
             Log.i("MainActivity", "Button Was clicked")
-
-            Toast.makeText(this, "Button was clicked", Toast.LENGTH_SHORT).show()
+            showToast("Button was clicked")
         }
         binding.include.submit.setOnClickListener{
             val editText = findViewById<EditText>(R.id.name)
@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         binding.include.share.setOnClickListener {
-            val message: String =binding.include.name.text.toString()
+            val message: String = binding.include.name.text.toString()
 
             val intent =Intent()
             intent.action = Intent.ACTION_SEND
@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
 
             startActivity(Intent.createChooser(intent, "share to: "))
         }
-        binding.include.btnrcyl.setOnClickListener {
+        binding.include.btnCyl.setOnClickListener {
             val intent =Intent(this, HobbiesActivity::class.java).apply {
 
             }
